@@ -10,7 +10,7 @@ export async function GetWorkflowsForUser() {
     throw new Error("账户错误");
   }
 
-  return prisma.workflow.findMany({
+  return await prisma.workflow.findMany({
     where: {
       userId,
     },
