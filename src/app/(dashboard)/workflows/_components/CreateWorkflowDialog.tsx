@@ -12,7 +12,6 @@ import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -22,11 +21,11 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import CustomDialogHeader from "@/components/CustomDialogHeader";
 
-// import { createWorkflow } from "@/actions/workflows/create-workflow";
-// import {
-//   createWorkflowSchema,
-//   createWorkflowSchemaType,
-// } from "@/schema/workflows";
+import { createWorkflow } from "@/actions/workflows/createWorkflow";
+import {
+  createWorkflowSchema,
+  createWorkflowSchemaType,
+} from "@/schema/workflows";
 
 export default function CreateWorkflowDialog({
   triggerText,
@@ -34,35 +33,35 @@ export default function CreateWorkflowDialog({
   triggerText?: string;
 }) {
   const [open, setOpen] = useState(false);
-  const form = useForm();
-  // const form = useForm<createWorkflowSchemaType>({
-  //   resolver: zodResolver(createWorkflowSchema),
-  //   defaultValues: {},
-  // });
 
-  // const { mutate, isPending } = useMutation({
-  //   mutationFn: createWorkflow,
-  //   onSuccess: () => {
-  //     toast.success("Workflow created successfully", { id: "create-workflow" });
-  //   },
-  //   onError: () => {
-  //     toast.error("Failed to create workflow", { id: "create-workflow" });
-  //   },
-  // });
+  const form = useForm<createWorkflowSchemaType>({
+    resolver: zodResolver(createWorkflowSchema),
+    defaultValues: {},
+  });
 
-  // const onSubmit = useCallback(
-  //   (values: createWorkflowSchemaType) => {
-  //     toast.loading("Creating workflow...", { id: "create-workflow" });
-  //     mutate(values);
-  //   },
-  //   [mutate]
-  // );
+  const { mutate, isPending } = useMutation({
+    mutationFn: createWorkflow,
+    onSuccess: () => {
+      toast.success("创建成功", { id: "create-workflow" });
+    },
+    onError: () => {
+      toast.error("创建失败", { id: "create-workflow" });
+    },
+  });
+
+  const onSubmit = useCallback(
+    (values: createWorkflowSchemaType) => {
+      toast.loading("正在创建工作区...", { id: "create-workflow" });
+      mutate(values);
+    },
+    [mutate]
+  );
 
   return (
     <Dialog
       open={open}
       onOpenChange={(open) => {
-        // form.reset();
+        form.reset();
         setOpen(open);
       }}
     >
@@ -75,10 +74,10 @@ export default function CreateWorkflowDialog({
           <Form {...form}>
             <form
               className="space-y-8 w-full"
-              // onSubmit={form.handleSubmit(onSubmit)}
+              onSubmit={form.handleSubmit(onSubmit)}
             >
               <FormField
-                // control={form.control}
+                control={form.control}
                 name="name"
                 render={({ field }) => (
                   <FormItem>
@@ -95,7 +94,7 @@ export default function CreateWorkflowDialog({
                 )}
               />
               <FormField
-                // control={form.control}
+                control={form.control}
                 name="description"
                 render={({ field }) => (
                   <FormItem>
@@ -111,12 +110,8 @@ export default function CreateWorkflowDialog({
                   </FormItem>
                 )}
               />
-              <Button
-                type="submit"
-                className="w-full"
-                //  disabled={isPending}
-              >
-                {/* {isPending ? <Loader2 className="animate-spin" /> : "Proceed"} */}
+              <Button type="submit" className="w-full" disabled={isPending}>
+                {isPending ? <Loader2 className="animate-spin" /> : "新建"}
               </Button>
             </form>
           </Form>

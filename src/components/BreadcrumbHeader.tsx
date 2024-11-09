@@ -11,11 +11,17 @@ import {
 } from "./ui/breadcrumb";
 import { MobileSidebar } from "./Sidebar";
 
+const routesMap = new Map([
+  ["", "首页"],
+  ["workflows", "工作流"],
+  ["credentials", "认证"],
+]);
+
 const BreadcrumbHeader = () => {
   const pathName = usePathname();
-  const paths = pathName === "/" ? [""] : pathName?.split("/");
+  const paths =
+    pathName === "/" ? [""] : pathName?.split("/").map((i) => routesMap.get(i));
 
-  console.log("BreadcrumbHeader", pathName);
   return (
     <div className="flex items-center flex-start">
       <MobileSidebar />
