@@ -39,6 +39,7 @@ const routes = [
 
 function DesktopSidebar() {
   const pathname = usePathname();
+
   const activeRoute =
     routes.find(
       (route) => route.href.length > 0 && pathname.includes(route.href)
@@ -59,7 +60,7 @@ function DesktopSidebar() {
           return (
             <Link
               key={route.href}
-              href={route.href}
+              href={`/${route.href}`}
               className={buttonVariants({
                 variant:
                   activeRoute.href === route.href
@@ -106,7 +107,7 @@ export function MobileSidebar() {
                 return (
                   <Link
                     key={route.href}
-                    href={route.href}
+                    href={`/${route.href}`}
                     className={buttonVariants({
                       variant:
                         activeRoute.href === route.href
