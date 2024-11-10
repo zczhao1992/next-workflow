@@ -1,29 +1,29 @@
 import { LucideProps } from "lucide-react";
 
-// import { TaskParam, TaskType } from "@/types/task";
-// import { AppNode } from "@/types/appnode";
+import { TaskParam, TaskType } from "./task";
+import { AppNode } from "./appNode";
 
 export enum WorkflowStatus {
   DRAFT = "DRAFT",
   PUBLISHED = "PUBLISHED",
 }
 
-// export type WorkflowTask = {
-//   type: TaskType;
-//   label: string;
-//   icon: React.FC<LucideProps>;
-//   isEntryPoint?: boolean;
-//   inputs: TaskParam[];
-//   outputs: TaskParam[];
-//   credits: number;
-// };
+export type WorkflowTask = {
+  type: TaskType;
+  label: string;
+  icon: React.FC<LucideProps>;
+  isEntryPoint?: boolean;
+  inputs: TaskParam[];
+  outputs: TaskParam[];
+  credits: number;
+};
 
-// export type WorkflowExecutionPlanPhase = {
-//   phase: number;
-//   nodes: AppNode[];
-// };
+export type WorkflowExecutionPlanPhase = {
+  phase: number;
+  nodes: AppNode[];
+};
 
-// export type WorkflowExecutionPlan = WorkflowExecutionPlanPhase[];
+export type WorkflowExecutionPlan = WorkflowExecutionPlanPhase[];
 
 export enum WorkflowExecutionStatus {
   PENDING = "PENDING",
