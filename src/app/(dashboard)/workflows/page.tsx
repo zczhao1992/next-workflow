@@ -39,7 +39,7 @@ function UserWorkflowsSkeleton() {
 }
 
 async function UserWorkflows() {
-  const workflows = await GetWorkflowsForUser();
+  let workflows = await GetWorkflowsForUser();
 
   if (!workflows) {
     return (
