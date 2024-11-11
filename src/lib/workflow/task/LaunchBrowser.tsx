@@ -25,7 +25,7 @@ export const LaunchBrowserTask = {
   ] as const,
   outputs: [
     {
-      name: "网站页面",
+      name: "页面",
       type: TaskParamType.BROWSER_INSTANCE,
     },
   ] as const,

@@ -7,7 +7,7 @@ import { TaskParam, TaskParamType } from "@/types/task";
 import { AppNode } from "@/types/appNode";
 
 import StringParam from "./param/StringParam";
-// import BrowserInstanceParam from "@/app/workflow/_components/nodes/param/browser-instance-param";
+import BrowserInstanceParam from "./param/BrowserInstanceParam";
 // import SelectParam from "@/app/workflow/_components/nodes/param/select-param";
 // import CredentialsParam from "@/app/workflow/_components/nodes/param/credentials-param";
 
@@ -46,14 +46,14 @@ export default function NodeParamField({
           disabled={disabled}
         />
       );
-    // case TaskParamType.BROWSER_INSTANCE:
-    //   return (
-    //     <BrowserInstanceParam
-    //       param={param}
-    //       value={""}
-    //       updateNodeParamValue={updateNodeParamValue}
-    //     />
-    //   );
+    case TaskParamType.BROWSER_INSTANCE:
+      return (
+        <BrowserInstanceParam
+          param={param}
+          value={""}
+          updateNodeParamValue={updateNodeParamValue}
+        />
+      );
     // case TaskParamType.SELECT:
     //   return (
     //     <SelectParam

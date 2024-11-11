@@ -1,7 +1,7 @@
 import { Handle, Position, useEdges } from "@xyflow/react";
 
 import NodeParamField from "./NodeParamField";
-// import { ColorForHandle } from "@/app/workflow/_components/nodes/common";
+import { ColorForHandle } from "./common";
 
 // import useFlowValidation from "@/hooks/use-flow-validation";
 import { cn } from "@/lib/utils";
@@ -42,8 +42,8 @@ export function NodeInput({
           type="target"
           position={Position.Left}
           className={cn(
-            "!bg-muted-foreground !border-2 !border-background !-left-2 !w-4 !h-4"
-            // ColorForHandle[input.type]
+            "!bg-muted-foreground !border-2 !border-background !-left-2 !w-4 !h-4",
+            ColorForHandle[input.type]
           )}
         />
       )}

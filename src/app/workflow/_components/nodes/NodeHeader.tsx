@@ -29,11 +29,11 @@ export default function NodeHeader({
           {task.label}
         </p>
         <div className="flex gap-1 items-center">
-          {task.isEntryPoint && <Badge>接入点</Badge>}
-          <Badge className="gap-2 flex items-center text-xs">
+          {task.isEntryPoint && <Badge>触发器</Badge>}
+          {/* <Badge className="gap-2 flex items-center text-xs">
             <CoinsIcon size={16} />
             {task.credits}
-          </Badge>
+          </Badge> */}
           {!task.isEntryPoint && (
             <>
               <Button
