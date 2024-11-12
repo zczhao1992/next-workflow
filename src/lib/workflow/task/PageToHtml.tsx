@@ -16,7 +16,8 @@ export const PageToHtmlTask = {
   credits: 2,
   inputs: [
     {
-      name: "页面",
+      name: "Web page",
+      label: "页面",
       type: TaskParamType.BROWSER_INSTANCE,
       required: true,
     },
@@ -24,10 +25,12 @@ export const PageToHtmlTask = {
   outputs: [
     {
       name: "HTML",
+      label: "HTML",
       type: TaskParamType.STRING,
     },
     {
-      name: "页面",
+      name: "Web page",
+      label: "页面",
       type: TaskParamType.BROWSER_INSTANCE,
     },
   ] as const,

@@ -12,19 +12,22 @@ export const ExtractTextFromElementTask = {
   inputs: [
     {
       name: "HTML",
+      label: "HTML",
       type: TaskParamType.STRING,
       required: true,
       variant: "textarea",
     },
     {
-      name: "选择器",
+      name: "Selector",
+      label: "选择器",
       type: TaskParamType.STRING,
       required: true,
     },
   ] as const,
   outputs: [
     {
-      name: "选择元素",
+      name: "Extracted text",
+      label: "选取元素",
       type: TaskParamType.STRING,
     },
   ] as const,

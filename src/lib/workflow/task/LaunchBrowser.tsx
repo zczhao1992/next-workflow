@@ -16,7 +16,8 @@ export const LaunchBrowserTask = {
   credits: 5,
   inputs: [
     {
-      name: "新建标签页 URL",
+      label: "新建标签页 URL",
+      name: "Website Url",
       type: TaskParamType.STRING,
       helperText: "例如: https://www.baidu.com",
       required: true,
@@ -25,7 +26,8 @@ export const LaunchBrowserTask = {
   ] as const,
   outputs: [
     {
-      name: "页面",
+      label: "页面",
+      name: "Web page",
       type: TaskParamType.BROWSER_INSTANCE,
     },
   ] as const,

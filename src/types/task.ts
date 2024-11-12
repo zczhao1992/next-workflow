@@ -22,6 +22,7 @@ export enum TaskParamType {
 
 export interface TaskParam {
   name: string;
+  label: string;
   type: TaskParamType;
   helperText?: string;
   required?: boolean;

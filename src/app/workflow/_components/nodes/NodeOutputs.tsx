@@ -12,7 +12,7 @@ export function NodeOutputs({ children }: { children: React.ReactNode }) {
 export function NodeOutput({ output }: { output: TaskParam }) {
   return (
     <div className="flex justify-end relative p-3 bg-secondary">
-      <p className="text-xs text-muted-foreground">{output.name}</p>
+      <p className="text-xs text-muted-foreground">{output.label}</p>
       {!output.hideHandle && (
         <Handle
           id={output.name}

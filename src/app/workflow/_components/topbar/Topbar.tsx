@@ -5,8 +5,8 @@ import { ChevronLeftIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import TooltipWrapper from "@/components/TooltipWrapper";
-import SaveBtn from "@/app/workflow/_components/topbar/SaveBtn";
-// import ExecuteBtn from "@/app/workflow/_components/topbar/execute-btn";
+import SaveBtn from "./SaveBtn";
+import ExecuteBtn from "./ExecuteBtn";
 // import PublishBtn from "@/app/workflow/_components/topbar/publish-btn";
 // import UnpublishBtn from "@/app/workflow/_components/topbar/unpublish-btn";
 // import NavigationTabs from "@/app/workflow/_components/topbar/navigation-tabs";
@@ -49,8 +49,8 @@ export default function Topbar({
       <div className="flex gap-1 flex-1 justify-end">
         {hideButtons === false && (
           <>
-            {/* <ExecuteBtn workflowId={workflowId} />
-            {isPublished && <UnpublishBtn workflowId={workflowId} />} */}
+            <ExecuteBtn workflowId={workflowId} />
+            {/*  {isPublished && <UnpublishBtn workflowId={workflowId} />} */}
             {!isPublished && (
               <>
                 <SaveBtn workflowId={workflowId} />
