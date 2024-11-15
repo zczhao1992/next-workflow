@@ -40,28 +40,36 @@ export async function RunWorkflow(form: {
   });
 
   if (!workflow) {
-    throw new Error("工作流没找到");
+    throw new Error("工作流未找到");
   }
 
   let executionPlan: WorkflowExecutionPlan;
   let workflowDefinition = flowDefinition;
 
-  if (!flowDefinition) {
-    throw new Error("工作流输入没找到");
+  if (workflow.status === WorkflowStatus.PUBLISHED) {
+    if (!workflow.executionPlan) {
+      throw new Error("在已发布的工作流中找不到执行计划");
+    }
+    executionPlan = JSON.parse(workflow.executionPlan);
+    workflowDefinition = workflow.definition;
+  } else {
+    if (!flowDefinition) {
+      throw new Error("工作流未定义");
+    }
+
+    const flow = JSON.parse(flowDefinition);
+    const result = FlowToExecutionPlan(flow.nodes, flow.edges);
+
+    if (result.error) {
+      throw new Error("工作流定义无效");
+    }
+
+    if (!result.executionPlan) {
+      throw new Error("未生成执行计划");
+    }
+
+    executionPlan = result.executionPlan;
   }
-
-  const flow = JSON.parse(flowDefinition);
-  const result = FlowToExecutionPlan(flow.nodes, flow.edges);
-
-  if (result.error) {
-    throw new Error("工作流定义无效");
-  }
-
-  if (!result.executionPlan) {
-    throw new Error("未生成执行计划");
-  }
-
-  executionPlan = result.executionPlan;
 
   const execution = await prisma.workflowExecution.create({
     data: {

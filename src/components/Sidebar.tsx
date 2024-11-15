@@ -30,11 +30,6 @@ const routes = [
     label: "认证",
     icon: ShieldCheckIcon,
   },
-  {
-    href: "billing",
-    label: "billing",
-    icon: CoinsIcon,
-  },
 ];
 
 function DesktopSidebar() {

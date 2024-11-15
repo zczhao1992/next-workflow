@@ -5,6 +5,9 @@ import Link from "next/link";
 import { Workflow } from "@prisma/client";
 import { cn } from "@/lib/utils";
 import { Card, CardContent } from "@/components/ui/card";
+import { format, formatDistanceToNow } from "date-fns";
+import { zhCN } from "date-fns/locale";
+import { formatInTimeZone } from "date-fns-tz";
 import {
   ChevronRightIcon,
   ClockIcon,
@@ -27,8 +30,15 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+
+import {
+  ExecutionStatusIndicator,
+  ExecutionStatusLabel,
+} from "@/app/workflow/runs/[workflowId]/_components/ExecutionStatusIndicator";
+import RunBtn from "./RunBtn";
 import DeleteWorkflowDialog from "./DeleteWorkflowDialog";
 import { WorkflowExecutionStatus, WorkflowStatus } from "@/types/workflow";
+import DuplicateWorkflowDialog from "./DuplicateWorkflowDialog";
 
 const statusColors = {
   [WorkflowStatus.DRAFT]: "bg-yellow-400 text-yellow-600",
@@ -69,18 +79,12 @@ export default function WorkflowCard({ workflow }: { workflow: Workflow }) {
                   未发布
                 </span>
               )}
-              {/* <DuplicateWorkflowDialog workflowId={workflow.id} /> */}
+              <DuplicateWorkflowDialog workflowId={workflow.id} />
             </h3>
-            {/* <ScheduleSection
-              isDraft={isDraft}
-              creditsConsumed={workflow.creditsConsumed}
-              workflowId={workflow.id}
-              cron={workflow.cron}
-            /> */}
           </div>
         </div>
         <div className="flex items-center space-x-2">
-          {/* {!isDraft && <RunBtn workflowId={workflow.id} />} */}
+          {!isDraft && <RunBtn workflowId={workflow.id} />}
           <Link
             href={`/workflow/editor/${workflow.id}`}
             className={cn(
@@ -100,7 +104,7 @@ export default function WorkflowCard({ workflow }: { workflow: Workflow }) {
           />
         </div>
       </CardContent>
-      {/* <LastRunDetails workflow={workflow} /> */}
+      <LastRunDetails workflow={workflow} />
     </Card>
   );
 }
@@ -145,5 +149,56 @@ function WorkflowActions({
         </DropdownMenuContent>
       </DropdownMenu>
     </>
+  );
+}
+
+function LastRunDetails({ workflow }: { workflow: Workflow }) {
+  const isDraft = workflow.status === WorkflowStatus.DRAFT;
+  if (isDraft) {
+    return null;
+  }
+
+  const { lastRunAt, lastRunStatus, lastRunId, nextRunAt } = workflow;
+  const formattedStartedAt =
+    lastRunAt &&
+    formatDistanceToNow(lastRunAt, { addSuffix: true, locale: zhCN });
+
+  const nextSchedule = nextRunAt && format(nextRunAt, "yyyy-MM-dd HH:mm");
+  const nextScheduleUTC =
+    nextRunAt && formatInTimeZone(nextRunAt, "UTC", "HH:mm");
+
+  return (
+    <div className="bg-primary/5 px-4 py-1 flex justify-between items-center text-muted-foreground">
+      <div className="flex items-center text-sm gap-2">
+        {lastRunAt && (
+          <Link
+            href={`/workflow/runs/${workflow.id}/${lastRunId}`}
+            className="flex items-center text-sm gap-2 group"
+          >
+            <span>最后运行:</span>
+            <ExecutionStatusIndicator
+              status={lastRunStatus as WorkflowExecutionStatus}
+            />
+            <ExecutionStatusLabel
+              status={lastRunStatus as WorkflowExecutionStatus}
+            />
+            <span>{formattedStartedAt}</span>
+            <ChevronRightIcon
+              size={14}
+              className="-translate-x-[2px] group-hover:translate-x-0 transition"
+            />
+          </Link>
+        )}
+        {!lastRunAt && <p>还未运行</p>}
+      </div>
+      {nextRunAt && (
+        <div className="flex items-center text-sm gap-2">
+          <ClockIcon size={12} />
+          <span>下次运行:</span>
+          <span>{nextSchedule}</span>
+          <span className="text-xs">({nextScheduleUTC} UTC)</span>
+        </div>
+      )}
+    </div>
   );
 }

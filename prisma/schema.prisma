@@ -20,7 +20,11 @@ model Workflow {
   name        String
   description String?
 
-  definition String
+  definition    String
+  executionPlan String?
+  creditsCost   Int     @default(0)
+
+  cron String?
 
   status String // DRAFT | PUBLISHED
 

@@ -7,9 +7,9 @@ import { Button } from "@/components/ui/button";
 import TooltipWrapper from "@/components/TooltipWrapper";
 import SaveBtn from "./SaveBtn";
 import ExecuteBtn from "./ExecuteBtn";
-// import PublishBtn from "@/app/workflow/_components/topbar/publish-btn";
-// import UnpublishBtn from "@/app/workflow/_components/topbar/unpublish-btn";
-// import NavigationTabs from "@/app/workflow/_components/topbar/navigation-tabs";
+import PublishBtn from "./PublishBtn";
+import UnpublishBtn from "./UnpublishBtn";
+import NavigationTabs from "./NavigationTabs";
 
 interface TopbarProps {
   title: string;
@@ -45,16 +45,16 @@ export default function Topbar({
           )}
         </div>
       </div>
-      {/* <NavigationTabs workflowId={workflowId} /> */}
+      <NavigationTabs workflowId={workflowId} />
       <div className="flex gap-1 flex-1 justify-end">
         {hideButtons === false && (
           <>
             <ExecuteBtn workflowId={workflowId} />
-            {/*  {isPublished && <UnpublishBtn workflowId={workflowId} />} */}
+            {isPublished && <UnpublishBtn workflowId={workflowId} />}
             {!isPublished && (
               <>
                 <SaveBtn workflowId={workflowId} />
-                {/* <PublishBtn workflowId={workflowId} /> */}
+                <PublishBtn workflowId={workflowId} />
               </>
             )}
           </>
