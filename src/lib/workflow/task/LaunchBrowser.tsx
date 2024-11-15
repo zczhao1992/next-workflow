@@ -13,7 +13,7 @@ export const LaunchBrowserTask = {
   label: "新建标签页",
   icon: (props) => <GlobeIcon className="stroke-pink-400" {...props} />,
   isEntryPoint: true,
-  credits: 5,
+  credits: 9999,
   inputs: [
     {
       label: "新建标签页 URL",

@@ -73,7 +73,7 @@ export default function WorkflowCard({ workflow }: { workflow: Workflow }) {
             </h3>
             {/* <ScheduleSection
               isDraft={isDraft}
-              creditsCost={workflow.creditsCost}
+              creditsConsumed={workflow.creditsConsumed}
               workflowId={workflow.id}
               cron={workflow.cron}
             /> */}

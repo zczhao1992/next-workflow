@@ -8,7 +8,7 @@ export const ExtractTextFromElementTask = {
   label: "选择元素",
   icon: (props) => <TextIcon className="stroke-rose-400" {...props} />,
   isEntryPoint: false,
-  credits: 2,
+  credits: 9999,
   inputs: [
     {
       name: "HTML",

@@ -7,38 +7,38 @@ import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
 
-// import { runWorkflow } from "@/actions/workflows/run-workflow";
+import { RunWorkflow } from "@/actions/workflows/runWorkflow";
 import useExecutionPlan from "@/hooks/useExecutionPlan";
 
 export default function ExecuteBtn({ workflowId }: { workflowId: string }) {
   const generate = useExecutionPlan();
   const { toObject } = useReactFlow();
 
-  // const mutation = useMutation({
-  //   mutationFn: runWorkflow,
-  //   onSuccess: () => {
-  //     toast.success("Execution started", { id: "flow-execution" });
-  //   },
-  //   onError: () => {
-  //     toast.error("Something went wrong!", { id: "flow-execution" });
-  //   },
-  // });
+  const mutation = useMutation({
+    mutationFn: RunWorkflow,
+    onSuccess: () => {
+      toast.success("执行开始", { id: "flow-execution" });
+    },
+    onError: () => {
+      toast.error("执行错误", { id: "flow-execution" });
+    },
+  });
 
   return (
     <Button
       variant="outline"
       className="flex items-center gap-2"
-      // disabled={mutation.isPending}
+      disabled={mutation.isPending}
       onClick={() => {
         const plan = generate();
         if (!plan) {
           return;
         }
-        console.log("plan", plan);
-        // mutation.mutate({
-        //   workflowId: workflowId,
-        //   flowDefinition: JSON.stringify(toObject()),
-        // });
+
+        mutation.mutate({
+          workflowId: workflowId,
+          flowDefinition: JSON.stringify(toObject()),
+        });
       }}
     >
       <PlayIcon size={16} className="stroke-orange-400" />
