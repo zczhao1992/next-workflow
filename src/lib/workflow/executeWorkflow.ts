@@ -204,7 +204,7 @@ async function executeWorkflowPhase(
   const creditsRequired = TaskRegistry[node.data.type].credits;
 
   let success = await decrementCredits(userId, creditsRequired, logCollector);
-  const creditsConsumed = success ? creditsRequired : 9999;
+  const creditsConsumed = success ? creditsRequired : 0;
 
   if (success) {
     // 积分充足时执行阶段
@@ -389,7 +389,7 @@ async function decrementCredits(
   try {
     // await prisma.userBalanace.update({
     //   where: { userId, credits: { gte: amount } },
-    //   data: { credits: { decrement: amount } },
+    //   data: { credits: { increment: amount } },
     // });
 
     return true;
