@@ -19,11 +19,11 @@ export async function GetWorkflowPhaseDetails(phaseId: string) {
       },
     },
     include: {
-      //   logs: {
-      //     orderBy: {
-      //       timestamp: "asc",
-      //     },
-      //   },
+      logs: {
+        orderBy: {
+          timestamp: "asc",
+        },
+      },
     },
   });
 }
