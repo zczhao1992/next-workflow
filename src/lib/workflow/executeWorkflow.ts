@@ -387,10 +387,10 @@ async function decrementCredits(
   logCollector: LogCollector
 ) {
   try {
-    await prisma.userBalanace.update({
-      where: { userId, credits: { gte: amount } },
-      data: { credits: { decrement: amount } },
-    });
+    // await prisma.userBalanace.update({
+    //   where: { userId, credits: { gte: amount } },
+    //   data: { credits: { decrement: amount } },
+    // });
 
     return true;
   } catch (error) {

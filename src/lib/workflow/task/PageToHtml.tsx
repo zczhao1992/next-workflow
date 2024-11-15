@@ -13,7 +13,7 @@ export const PageToHtmlTask = {
   label: "获取HTML",
   icon: (props) => <CodeIcon className="stroke-rose-400" {...props} />,
   isEntryPoint: false,
-  credits: 9999,
+  credits: 0,
   inputs: [
     {
       name: "Web page",
