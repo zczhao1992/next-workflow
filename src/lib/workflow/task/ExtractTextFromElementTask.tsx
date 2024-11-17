@@ -5,7 +5,7 @@ import { WorkflowTask } from "@/types/workflow";
 
 export const ExtractTextFromElementTask = {
   type: TaskType.EXTRACT_TEXT_FROM_ELEMENT,
-  label: "选择元素文本",
+  label: "获取文本",
   icon: (props) => <TextIcon className="stroke-rose-400" {...props} />,
   isEntryPoint: false,
   credits: 0,

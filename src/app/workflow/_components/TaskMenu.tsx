@@ -63,9 +63,9 @@ export default function TaskMenu() {
         </AccordionItem>
 
         <AccordionItem value="results">
-          <AccordionTrigger className="font-bold">交付</AccordionTrigger>
+          <AccordionTrigger className="font-bold">网络钩子</AccordionTrigger>
           <AccordionContent className="flex flex-col gap-1">
-            {/* <TaskMenuBtn taskType={TaskType.DELIVER_VIA_WEBHOOK} /> */}
+            <TaskMenuBtn taskType={TaskType.DELIVER_VIA_WEBHOOK} />
           </AccordionContent>
         </AccordionItem>
       </Accordion>
