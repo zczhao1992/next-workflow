@@ -8,7 +8,7 @@ import { AppNode } from "@/types/appNode";
 
 import StringParam from "./param/StringParam";
 import BrowserInstanceParam from "./param/BrowserInstanceParam";
-// import SelectParam from "@/app/workflow/_components/nodes/param/select-param";
+import SelectParam from "./param/SelectParam";
 // import CredentialsParam from "@/app/workflow/_components/nodes/param/credentials-param";
 
 export default function NodeParamField({
@@ -54,15 +54,15 @@ export default function NodeParamField({
           updateNodeParamValue={updateNodeParamValue}
         />
       );
-    // case TaskParamType.SELECT:
-    //   return (
-    //     <SelectParam
-    //       param={param}
-    //       value={value}
-    //       updateNodeParamValue={updateNodeParamValue}
-    //       disabled={disabled}
-    //     />
-    //   );
+    case TaskParamType.SELECT:
+      return (
+        <SelectParam
+          param={param}
+          value={value}
+          updateNodeParamValue={updateNodeParamValue}
+          disabled={disabled}
+        />
+      );
     // case TaskParamType.CREDENTIAL:
     // return (
     //   <CredentialsParam

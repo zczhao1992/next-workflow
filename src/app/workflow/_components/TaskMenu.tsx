@@ -31,10 +31,10 @@ export default function TaskMenu() {
         <AccordionItem value="interactions">
           <AccordionTrigger className="font-bold">用户行为</AccordionTrigger>
           <AccordionContent className="flex flex-col gap-1">
-            {/* <TaskMenuBtn taskType={TaskType.NAVIGATE_URL} />
+            {/* <TaskMenuBtn taskType={TaskType.NAVIGATE_URL} /> */}
             <TaskMenuBtn taskType={TaskType.FILL_INPUT} />
             <TaskMenuBtn taskType={TaskType.CLICK_ELEMENT} />
-            <TaskMenuBtn taskType={TaskType.SCROLL_TO_ELEMENT} /> */}
+            {/*  <TaskMenuBtn taskType={TaskType.SCROLL_TO_ELEMENT} /> */}
           </AccordionContent>
         </AccordionItem>
 
@@ -56,9 +56,9 @@ export default function TaskMenu() {
         </AccordionItem>
 
         <AccordionItem value="timing">
-          <AccordionTrigger className="font-bold">定时器</AccordionTrigger>
+          <AccordionTrigger className="font-bold">定时控制</AccordionTrigger>
           <AccordionContent className="flex flex-col gap-1">
-            {/* <TaskMenuBtn taskType={TaskType.WAIT_FOR_ELEMENT} /> */}
+            <TaskMenuBtn taskType={TaskType.WAIT_FOR_ELEMENT} />
           </AccordionContent>
         </AccordionItem>
 
