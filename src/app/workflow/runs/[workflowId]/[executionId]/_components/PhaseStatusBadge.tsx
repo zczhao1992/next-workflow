@@ -16,7 +16,7 @@ export default function PhaseStatusBadge({
     CREATED: "已创建",
     PENDING: "等待中",
     RUNNING: "运行中",
-    COMPLETED: "已完成",
+    COMPLETED: "运行成功",
     FAILED: "已失败",
   };
   switch (status) {

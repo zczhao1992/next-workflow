@@ -33,7 +33,7 @@ export function ExecutionStatusLabel({
   const statusMap = {
     PENDING: "等待中",
     RUNNING: "运行中",
-    COMPLETED: "已完成",
+    COMPLETED: "运行成功",
     FAILED: "已失败",
   };
 
