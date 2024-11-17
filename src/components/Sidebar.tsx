@@ -27,7 +27,7 @@ const routes = [
   },
   {
     href: "credentials",
-    label: "认证",
+    label: "凭证",
     icon: ShieldCheckIcon,
   },
 ];

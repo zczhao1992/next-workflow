@@ -98,7 +98,7 @@ export default function ExecutionsTable({
                         status={execution.status as WorkflowExecutionStatus}
                       />
                       <span className="font-semibold capitalize">
-                        {execution.status as WorkflowExecutionStatus}
+                        {statusMap[execution.status as WorkflowExecutionStatus]}
                       </span>
                     </div>
                     <div className="text-muted-foreground text-xs mx-5">
