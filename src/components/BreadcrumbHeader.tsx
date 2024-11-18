@@ -14,7 +14,7 @@ import { MobileSidebar } from "./Sidebar";
 const routesMap = new Map([
   ["", "首页"],
   ["workflows", "工作流"],
-  ["credentials", "认证"],
+  ["credentials", "凭证"],
 ]);
 
 const BreadcrumbHeader = () => {
@@ -35,6 +35,7 @@ const BreadcrumbHeader = () => {
                     {path === "" ? "首页" : path}
                   </BreadcrumbLink>
                 </BreadcrumbItem>
+                {index !== paths.length - 1 && <BreadcrumbSeparator />}
               </React.Fragment>
             );
           })}

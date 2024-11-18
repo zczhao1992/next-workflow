@@ -1,36 +1,107 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Next-WorkFlow
 
-## Getting Started
+### 介绍
 
-First, run the development server:
+Next-WorkFlow，基于 Next.js、shadcn/ui、TailWind css、Prisma ORM、Supabase 的一套网页自动化工作流。
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### 一、在线预览地址
+
+- Link(可能需要翻墙)：https://next-workflow-zc.vercel.app/
+
+### 二、Git 仓库地址 (欢迎 Star⭐)
+
+- GitHub：https://github.com/zczhao1992/next-workflow.git
+
+### 三、🔨🔨🔨 项目功能
+
+- 🚀 采用最新技术找开发：Next14、TypeScript、shadcn/ui、TailWind css 等
+- 🚀 使用 Clerk 作为身份认证，支持 Google、Github 账号登录
+- 🚀 使用 Prisma ORM 及 PostgreSQL 作为数据库存储工具，数据库部署在 Supabase
+- 🚀 整个项目集成了 TypeScript
+- 🚀 使用 react-flow 作为整个项目的核心流程图库
+- 🚀 使用 puppeteer、cheerio 以支持网页自动化，支持定时任务
+- 🚀 目前已支持的节点工具包括：
+  - 新建标签页
+  - 获取页面
+  - 获取元素文本
+  - 填充输入框
+  - 点击元素
+  - 等待元素响应
+  - 网络钩子
+  - 跳转链接
+  - 滚动元素
+  - 保存为 JSON
+
+### 四、安装使用步骤 📑
+
+- **Clone：**
+
+```text
+# GitHub
+git clone https://github.com/zczhao1992/next-workflow.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Install：**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+npm install
+cnpm install
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+# npm install 安装失败，请升级 nodejs 到 16 以上，或尝试使用以下命令：
+npm install --registry=https://registry.npm.taobao.org
+```
 
-## Learn More
+- **Run：**
 
-To learn more about Next.js, take a look at the following resources:
+```text
+npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Build：**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```text
+# 开发环境
+npm run build
+```
 
-## Deploy on Vercel
+### 五、项目截图
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+#### 1、首页：
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+![workflow-home](./public/home.png)
+
+#### 2、工作流列表：
+
+![workflow-list](./public/workflowList.png)
+
+#### 3、编辑器：
+
+![workflow-editor](./public/editor.png)
+![workflow-editor](./public/editor1.png)
+
+### 六、文件资源目录 📚
+
+```text
+next-workflow
+├─ prisma                 # prisma orm
+├─ public                 # 静态资源文件（忽略打包）
+├─ src
+│  ├─ actions             # 调用数据库逻辑
+│  ├─ app                 # 项目页面
+│  ├─ components          # 全局组件
+│  ├─ hooks               # 自定义hook
+│  ├─ lib                 # 工具
+│  ├─ schema              # 业务模型
+│  ├─ types               # 业务类型
+│  └─ middleware.ts       # 中间件
+├─ .eslintrc.json         # eslint配置
+├─ .gitignore             # git 提交忽略
+├─ components.json        # shadcn/ui 组件配置
+├─ next-env.d.ts          # 环境变量配置
+├─ package-lock.json      # 依赖包包版本锁
+├─ package.json           # 依赖包管理
+├─ postcss.config.js      # postcss 配置
+├─ README.md              # README 介绍
+├─ tailwind.config.ts     # tailwind 配置
+└─ tsconfig.json          # typescript 全局配置
+```
