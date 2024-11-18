@@ -31,10 +31,10 @@ export default function TaskMenu() {
         <AccordionItem value="interactions">
           <AccordionTrigger className="font-bold">用户行为</AccordionTrigger>
           <AccordionContent className="flex flex-col gap-1">
-            {/* <TaskMenuBtn taskType={TaskType.NAVIGATE_URL} /> */}
+            <TaskMenuBtn taskType={TaskType.NAVIGATE_URL} />
             <TaskMenuBtn taskType={TaskType.FILL_INPUT} />
             <TaskMenuBtn taskType={TaskType.CLICK_ELEMENT} />
-            {/*  <TaskMenuBtn taskType={TaskType.SCROLL_TO_ELEMENT} /> */}
+            <TaskMenuBtn taskType={TaskType.SCROLL_TO_ELEMENT} />
           </AccordionContent>
         </AccordionItem>
 
@@ -50,8 +50,8 @@ export default function TaskMenu() {
         <AccordionItem value="storage">
           <AccordionTrigger className="font-bold">数据存储</AccordionTrigger>
           <AccordionContent className="flex flex-col gap-1">
-            {/* <TaskMenuBtn taskType={TaskType.READ_PROPERTY_FROM_JSON} />
-            <TaskMenuBtn taskType={TaskType.ADD_PROPERTY_TO_JSON} /> */}
+            <TaskMenuBtn taskType={TaskType.READ_PROPERTY_FROM_JSON} />
+            <TaskMenuBtn taskType={TaskType.ADD_PROPERTY_TO_JSON} />
           </AccordionContent>
         </AccordionItem>
 
