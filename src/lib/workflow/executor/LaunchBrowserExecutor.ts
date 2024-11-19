@@ -10,7 +10,8 @@ export async function LaunchBrowserExecutor(
     const websiteUrl = environment.getInput("Website Url");
 
     const browser = await puppeteer.launch({
-      headless: true,
+      headless: false,
+      args: ["--no-sandbox"],
       // args: ["--proxy-server=brd.superproxy.io:22225"],
       // executablePath: "/path/to/Chrome",
       // defaultViewport: {
