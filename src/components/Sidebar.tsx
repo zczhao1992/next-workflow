@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import {
-  CoinsIcon,
+  Github,
   HomeIcon,
   Layers2Icon,
   MenuIcon,
@@ -30,6 +30,11 @@ const routes = [
     label: "凭证",
     icon: ShieldCheckIcon,
   },
+  {
+    href: "https://github.com/zczhao1992/next-workflow",
+    label: "Github",
+    icon: Github,
+  },
 ];
 
 function DesktopSidebar() {
@@ -55,7 +60,7 @@ function DesktopSidebar() {
           return (
             <Link
               key={route.href}
-              href={`/${route.href}`}
+              href={route.label === "Github" ? route.href : `/${route.href}`}
               className={buttonVariants({
                 variant:
                   activeRoute.href === route.href

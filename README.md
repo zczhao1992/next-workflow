@@ -6,7 +6,8 @@ Next-WorkFlow，基于 Next.js、shadcn/ui、TailWind css、Prisma ORM、Supabas
 
 ### 一、在线预览地址
 
-- Link(可能需要翻墙)：https://next-workflow-zc.vercel.app/
+- vercel(需要翻墙)：https://next-workflow-zc.vercel.app/
+- netlify(无需翻墙)：https://next-workflow-zc.netlify.app/
 
 ### 二、Git 仓库地址 (欢迎 Star⭐)
 
@@ -14,7 +15,7 @@ Next-WorkFlow，基于 Next.js、shadcn/ui、TailWind css、Prisma ORM、Supabas
 
 ### 三、🔨🔨🔨 项目功能
 
-- 🚀 采用最新技术找开发：Next14、TypeScript、shadcn/ui、TailWind css 等
+- 🚀 采用最新技术找开发：Next14、TypeScript、shadcn/ui、TailWind css、react-flow 等
 - 🚀 使用 Clerk 作为身份认证，支持 Google、Github 账号登录
 - 🚀 使用 Prisma ORM 及 PostgreSQL 作为数据库存储工具，数据库部署在 Supabase
 - 🚀 整个项目集成了 TypeScript
