@@ -88,5 +88,15 @@
     "tailwindcss": "^3.4.1",
     "typescript": "^5",
     "wrangler": "^4.24.3"
-  }
+  },
+  "trustedDependencies": [
+    "@clerk/shared",
+    "@prisma/client",
+    "@prisma/engines",
+    "esbuild",
+    "prisma",
+    "puppeteer",
+    "sharp",
+    "workerd"
+  ]
 }
