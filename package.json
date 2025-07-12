@@ -48,6 +48,7 @@
     "@xyflow/react": "^12.3.4",
     "cheerio": "^1.0.0",
     "class-variance-authority": "^0.7.0",
+    "cloudflare": "^4.3.0",
     "clsx": "^2.1.1",
     "cmdk": "^1.0.0",
     "cron-parser": "^4.9.0",
