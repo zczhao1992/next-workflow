@@ -8,8 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "studio": "npx prisma studio",
-    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
-    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "preview": "opennextjs-cloudflare build --minify --split && opennextjs-cloudflare preview",
+    "deploy": "opennextjs-cloudflare build --minify --split && opennextjs-cloudflare deploy",
     "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
   },
   "dependencies": {
