@@ -1,0 +1,14 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/api/workflows/execute/route": "app/api/workflows/execute/route.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/api/workflows/cron/route": "app/api/workflows/cron/route.js",
+  "/(auth)/sign-in/[[...sign-in]]/page": "app/(auth)/sign-in/[[...sign-in]]/page.js",
+  "/workflow/editor/[workflowId]/page": "app/workflow/editor/[workflowId]/page.js",
+  "/(auth)/sign-up/[[...sign-up]]/page": "app/(auth)/sign-up/[[...sign-up]]/page.js",
+  "/workflow/runs/[workflowId]/[executionId]/page": "app/workflow/runs/[workflowId]/[executionId]/page.js",
+  "/workflow/runs/[workflowId]/page": "app/workflow/runs/[workflowId]/page.js",
+  "/(dashboard)/credentials/page": "app/(dashboard)/credentials/page.js",
+  "/(dashboard)/(home)/page": "app/(dashboard)/(home)/page.js",
+  "/(dashboard)/workflows/page": "app/(dashboard)/workflows/page.js"
+}
