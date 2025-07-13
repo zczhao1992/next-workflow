@@ -2,7 +2,7 @@
 
 ### 介绍
 
-Next-WorkFlow，基于 Next.js、shadcn/ui、TailWind css、Prisma ORM、Supabase 的一套网页自动化工作流。
+Next-WorkFlow，基于 Next.js、shadcn/ui、TailWind css、Prisma ORM、Neon 的一套网页自动化工作流。
 
 ### 一、在线预览地址
 
@@ -17,7 +17,7 @@ Next-WorkFlow，基于 Next.js、shadcn/ui、TailWind css、Prisma ORM、Supabas
 
 - 🚀 采用最新技术找开发：Next14、TypeScript、shadcn/ui、TailWind css、react-flow 等
 - 🚀 使用 Clerk 作为身份认证，支持 Google、Github 账号登录
-- 🚀 使用 Prisma ORM 及 PostgreSQL 作为数据库存储工具，数据库部署在 Supabase
+- 🚀 使用 Prisma ORM 及 PostgreSQL 作为数据库存储工具，数据库部署在 Neon
 - 🚀 整个项目集成了 TypeScript
 - 🚀 使用 react-flow 作为整个项目的核心流程图库
 - 🚀 使用 puppeteer、cheerio 以支持网页自动化，支持定时任务
