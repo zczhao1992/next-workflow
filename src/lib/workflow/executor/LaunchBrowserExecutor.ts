@@ -9,19 +9,19 @@ export async function LaunchBrowserExecutor(
 ): Promise<boolean> {
   try {
     const websiteUrl = environment.getInput("Website Url");
-
+    const baseUrl = process.env.NEXT_PUBLIC_APP_URL;
     // 调用截图 API
     const response = await fetch(
-      `/api/screenshot?url=${encodeURIComponent(websiteUrl)}`
+      `${baseUrl}/api/screenshot?url=${encodeURIComponent(websiteUrl)}`
     );
 
     if (!response.ok) {
       throw new Error(`截图 API 返回错误: ${response.status}`);
     }
 
-    // 获取截图 Blob
-    const screenshotBlob = await response.blob();
-    // const screenshotUrl = URL.createObjectURL(screenshotBlob);
+    const blob = await response.blob();
+    const screenshotUrl = URL.createObjectURL(blob);
+    environment.log.info(`Screenshot created: ${screenshotUrl}`);
 
     // 创建模拟的 browser 和 page 对象
     const mockBrowser = {
