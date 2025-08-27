@@ -1,4 +1,3 @@
-
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest) {
@@ -42,6 +41,7 @@ export async function GET(request: NextRequest) {
         ...launchOptions,
         args: chromium.args,
         executablePath: await chromium.executablePath(),
+        headless: chromium.headless,
       };
     } else {
       puppeteer = await import("puppeteer");
@@ -51,6 +51,7 @@ export async function GET(request: NextRequest) {
     const page = await browser.newPage();
     await page.goto(parsedUrl.toString(), { waitUntil: "networkidle2" });
     const screenshot = await page.screenshot({ type: "png" });
+
     return new NextResponse(screenshot, {
       headers: {
         "Content-Type": "image/png",
