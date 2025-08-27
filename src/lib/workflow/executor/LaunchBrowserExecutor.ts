@@ -4,7 +4,7 @@ import { LaunchBrowserTask } from "../task/LaunchBrowser";
 export async function LaunchBrowserExecutor(
   environment: ExecutionEnvironment<typeof LaunchBrowserTask>
 ): Promise<boolean> {
-  let browser;
+  let browser: any;
   try {
     const websiteUrl = environment.getInput("Website Url");
     const puppeteer = (await import("puppeteer-core")).default;
@@ -13,7 +13,9 @@ export async function LaunchBrowserExecutor(
     const browserOptions = await getBrowserOptions();
 
     browser = await puppeteer.launch(browserOptions);
-    environment.log.info("Browser started successfully");
+
+    environment.log.info("浏览器启动成功");
+
     environment.setBrowser(browser);
 
     const page = await browser.newPage();
