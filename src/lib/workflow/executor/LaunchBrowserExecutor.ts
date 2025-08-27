@@ -7,7 +7,14 @@ export async function LaunchBrowserExecutor(
   let browser: any;
   try {
     const websiteUrl = environment.getInput("Website Url");
-    const puppeteer = (await import("puppeteer-core")).default;
+
+    // 根据环境动态导入 puppeteer
+    let puppeteer;
+    if (process.env.NODE_ENV === "development") {
+      puppeteer = (await import("puppeteer")).default;
+    } else {
+      puppeteer = (await import("puppeteer-core")).default;
+    }
 
     // Configure browser options based on environment
     const browserOptions = await getBrowserOptions();
@@ -69,6 +76,8 @@ async function getBrowserOptions() {
         "--hide-scrollbars",
         "--disable-web-security",
         "--disable-features=VizDisplayCompositor",
+        "--no-sandbox", // 在 Serverless 环境中需要
+        "--disable-setuid-sandbox", // 在 Serverless 环境中需要
       ],
       executablePath: await chromium.executablePath(
         "https://github.com/Sparticuz/chromium/releases/download/v123.0.1/chromium-v123.0.1-pack.tar"
