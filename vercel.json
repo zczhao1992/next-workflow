@@ -4,5 +4,10 @@
             "path": "/api/workflows/cron",
             "schedule": "0 5 * * *"
         }
-    ]
+    ],
+    "build": {
+        "env": {
+            "PUPPETEER_SKIP_CHROMIUM_DOWNLOAD": "true"
+        }
+    }
 }
