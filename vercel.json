@@ -4,5 +4,11 @@
             "path": "/api/workflows/cron",
             "schedule": "0 5 * * *"
         }
-    ]
+    ],
+    "functions": {
+        "app/api/screenshot/route.ts": {
+            "memory": 1024,
+            "maxDuration": 60
+        }
+    }
 }
